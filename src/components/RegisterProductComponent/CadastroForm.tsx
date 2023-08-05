@@ -241,7 +241,7 @@ console.log(uploadProgress)
             >
               Add Ingredient
             </Button>
-
+            <SubtituloDaPagina>6. Ingredients</SubtituloDaPagina>
             {methodFields.map((item, index) => (
               <Flex key={item.id} align="center" justify="space-between" mb={2}>
                 <Input
