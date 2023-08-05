@@ -141,7 +141,7 @@ console.log(uploadProgress)
         <TituloDaPagina>Product Registration</TituloDaPagina>
         <ListStyle>
           <FormControl id="userName">
-            <SubtituloDaPagina>1. Upload product image:</SubtituloDaPagina>
+            <SubtituloDaPagina>1. Upload product image (512 x 768):</SubtituloDaPagina>
             <Stack direction={["column", "row"]} spacing={6}>
               <Center>
                 <Avatar size="xl" src={avatarUrl}>
