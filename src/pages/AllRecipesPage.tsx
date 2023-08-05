@@ -81,7 +81,7 @@ const AllRecipesPage: React.FC = () => {
               
                 color="#2f2f2f"
                 variant="h1"
-                fontSize="10xl"
+                fontSize="4xl"
               >
                 My Recipes
               </Heading>
