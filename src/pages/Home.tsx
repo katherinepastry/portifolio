@@ -33,19 +33,19 @@ const HomeComponent = () => {
       lineHeight="1.667em"
       fontWeight="400"
       color="#191A17"
-      minHeight="100vh"
-      pb={32}
+      minHeight="80vh"
+      pb={50}
     >
       <Grid
         maxW="1282px"
         mx="auto"
-        px={6}
+        px={12}
         templateColumns={{
           base: "1fr",
           sm: "repeat(2, 1fr)",
           md: "repeat(2, 1fr)",
         }}
-        gap={6}
+        gap={8}
         alignItems="center"
         my={{ base: "100px", md: "auto" }}
         w="full"
@@ -54,11 +54,12 @@ const HomeComponent = () => {
           <Box textAlign="left">
             <HomePageLogo />
             <Image
-              mb="24px"
+              mb="20px"
               src="https://assets.website-files.com/637fa7b1a7c89ce08dff2aec/6384e29b53b8230d59ee4219_shape-decorative-nutritionist-x-webflow-template.svg"
               alt=""
             />
-            <HomePageHeader title="Hello, I'm Katherine Gerhold, Pastry Chef" />
+            <HomePageHeader title="Hello," />
+            <HomePageHeader title="I'm Katherine Gerhold, Pastry Chef." />
             <HomePageTextDescription text="Baking and Pastry Arts degree by Columbus State Community College." />
             <Flex direction="row" justifyContent="left" mt={4}>
               <ContactButton />

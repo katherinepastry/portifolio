@@ -37,7 +37,7 @@ export default function ProductPage() {
   if (!product) {
     return (
       <Box fontSize="xl" fontWeight="bold" p={5}>
-        Produto não encontrado
+        Product not found
       </Box>
     );
   }
@@ -50,7 +50,6 @@ export default function ProductPage() {
     <Box
       bg="#FED0D0"
       minH="100vh"
-      p={5}
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -59,14 +58,20 @@ export default function ProductPage() {
       <Grid
         gridTemplateColumns={{ base: "repeat(1, 1fr)", sm: "repeat(2, 1fr)" }}
         justifyItems="center"
-        p={5}
+        pt={-10}
+        pb={-10}
+        pl={200}
+        pr={200}
+        mt={6}
+
+        
         bg="rgb(251, 226, 232)"
         borderRadius="md"
-        mt={{ md: "16px", base: "16px" }}
-        maxW={{ md: "80%", base: "100%" }}
+        //mt={{ md: "16px", base: "16px" }}
+        //maxW={{ md: "80%", base: "100%" }}
       >
         <ProductDescriptionImage imageUrl={product.image_url!} name={product.name} />
-        <VStack align="start" spacing={6} maxW={{ sm: "xl" }}>
+        <VStack align="start" spacing={1} maxW={{ sm: "xl" }}>
           <Heading
             color={textColor}
             fontSize={{ base: "2xl", md: "3xl" }}
@@ -74,6 +79,7 @@ export default function ProductPage() {
             fontWeight="bold"
             mt={4}
             pt={16}
+            pl={16}
           >
             {product.name}
           </Heading>

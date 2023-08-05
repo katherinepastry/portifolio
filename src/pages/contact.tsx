@@ -75,7 +75,7 @@ const Contact = () => {
       <Box display="flex" minHeight="100vh" pos="relative">
         <Box
           pos="absolute"
-          top={0}
+          top={-6}
           left={0}
           right={0}
           bottom={0}
@@ -163,7 +163,7 @@ const Contact = () => {
                         type="text"
                         name="name"
                         required
-                        placeholder="Enter your name"
+                        placeholder="Name"
                         {...inputStyle}
                         isRequired
                       />
@@ -189,7 +189,7 @@ const Contact = () => {
                     <FormControl>
                       <Textarea
                         name="message"
-                        placeholder="Messege"
+                        placeholder="Message"
                         {...inputStyle}
                         isRequired
                       />
@@ -221,7 +221,7 @@ const Contact = () => {
             </Flex>
           </Box>
         </Flex>
-        <Box position='absolute' bottom={{base:'-180px',md:'0px'}} width='100%' >
+        <Box position='absolute' bottom={{base:'-180px',md:'-50px' }} width='100%' >
           <Footer/>
         </Box>
       </Box>

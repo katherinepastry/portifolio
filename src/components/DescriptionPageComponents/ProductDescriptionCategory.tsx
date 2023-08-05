@@ -11,7 +11,6 @@ const ProductDescriptionCategory: React.FC<ProductCategoryProps> = ({ category, 
   return (
     <Box>
       <Text color={textColor} ml={2} lineHeight="1.6" fontWeight="bold" display="flex" alignItems="center" fontSize={{ base: "lg", md: "xl" }}>
-        <Icon as={FaCheckCircle} boxSize={6} color="green.500" mr={2} />
         Category
       </Text>
       <Text fontSize={{ base: "md", md: "lg" }} color={textColor} fontWeight="300" borderRadius="md" p={2} textAlign="justify" w="full">

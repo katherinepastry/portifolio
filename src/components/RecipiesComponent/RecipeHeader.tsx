@@ -11,13 +11,12 @@ const RecipeHeader: FC<RecipeHeaderProps> = ({ title }) => (
     <Heading
       color="#2f2f2f"
       variant="h1"
-      fontSize="3xl"
+      fontSize="4xl"
     >
       {title}
     </Heading>
     <Text color="#2f2f2f" textAlign="center">
-      Below you can find some of my recipes, <br />
-      if you want to know more or know other recipes click on the learn more button
+      <br />
     </Text>
   </Stack>
 );

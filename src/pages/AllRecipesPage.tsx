@@ -62,32 +62,29 @@ const AllRecipesPage: React.FC = () => {
           alignItems="center"
           justifyContent="center"
           bg="#FED0D0"
-          p={{ base: "50px", md: "129px 0 166px 0" }}
+          p={{ base: "50px", md: "10px 0 166px 0" }}
           minHeight="100vh"
           color="white"
         >
           <Center
-            bg="rgb(251, 226, 232)"
+            //bg="rgb(251, 226, 232)"
             borderRadius={12}
             maxW="60%"
-            p={8}
+            p={4}
+            mt={6}
             textAlign="center"
             display="flex"
             flexDir="column"
           >
             <Stack spacing={6}>
               <Heading
+              
                 color="#2f2f2f"
                 variant="h1"
-                fontSize="3xl"
+                fontSize="4xl"
               >
                 My Recipes
               </Heading>
-              <Text color="#2f2f2f" textAlign="center">
-                Below you can find some of my recipes, <br />
-                if you want to know more or know other recipes click on the
-                learn more button
-              </Text>
               <Stack spacing={3} direction={{ base: 'column', md: 'row' }} mt={2} alignItems="baseline">
                 {["Vegan", "Gluten Free", "Salt", "Sweet"].map(
                   (filter, index) => (

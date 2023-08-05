@@ -19,11 +19,11 @@ const RecipeItensContainer: FC<RecipeItensContainerProps> = ({ children }) => (
     <Center
       bg="rgb(251, 226, 232)"
       borderRadius={12}
-      w='fit-content'
-      pt='40px'
-      pb='40px'
-      pl='220px'
-      pr='220px'
+      w='81%'
+      pt='20px'
+      pb='30px'
+      pl='100px'
+      pr='100px'
       textAlign="center"
       display="flex"
       flexDir="column"

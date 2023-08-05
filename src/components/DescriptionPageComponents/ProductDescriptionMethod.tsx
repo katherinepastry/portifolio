@@ -11,7 +11,7 @@ const ProductDescriptionMethod: React.FC<ProductMethodProps> = ({ method, textCo
   return (
     <Box as="ol">
       <Text color={textColor} ml={2} lineHeight="1.6" fontWeight="bold" display="flex" alignItems="center" fontSize={{ base: "lg", md: "xl" }}>
-        <Icon as={FaCheckCircle} boxSize={6} color="green.500" mr={2} />
+        
         Method
       </Text>
       {method &&

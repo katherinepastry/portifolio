@@ -26,13 +26,13 @@ const About = () => {
         fontWeight="400"
         color="#5e6159"
         background="#ffb077"
-        pt={{ base: "50px", md: "129px" }}
-        pb="166px"
+        pt={{ base: "50px", md: "70px" }}
+        pb="70px"
         minHeight="100vh"
       >
         <DecorativeImage
           src="https://assets.website-files.com/637fa7b1a7c89ce08dff2aec/6384e8dfebaf6acfd4579496_shape-2-decorative-nutritionist-x-webflow-template.svg"
-          mb="20px"
+          mb="30px"
         />
         <AboutHeader
           title="Meet Katherine Gerhold - The Artisan Pastry Chef"
