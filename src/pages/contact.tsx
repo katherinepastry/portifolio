@@ -129,7 +129,7 @@ const Contact = () => {
                       with the contact information below, or send a message
                       using the form.
                     </Text>
-
+  
                     <HStack spacing={5}>
                       <a
                         href="https://www.tiktok.com/@juniatelles_?_t=8bokubqzewp&_r=1"
@@ -170,11 +170,11 @@ const Contact = () => {
                     </FormControl>
                     <FormControl>
                       <Input
-                        placeholder="phone number"
+                        placeholder="Phone"
                         type="number"
                         name="phone"
                         {...inputStyle}
-                        isRequired
+                        //isRequired
                       />
                     </FormControl>
                     <FormControl>

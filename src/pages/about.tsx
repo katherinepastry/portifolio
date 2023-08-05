@@ -32,11 +32,11 @@ const About = () => {
       >
         <DecorativeImage
           src="https://assets.website-files.com/637fa7b1a7c89ce08dff2aec/6384e8dfebaf6acfd4579496_shape-2-decorative-nutritionist-x-webflow-template.svg"
-          mb="50px"
+          mb="20px"
         />
         <AboutHeader
           title="Meet Katherine Gerhold - The Artisan Pastry Chef"
-          mb="50px"
+          mb="20px"
         />
 
         <Box maxWidth="1282px" px="24px" mx="auto" textAlign="justify">
