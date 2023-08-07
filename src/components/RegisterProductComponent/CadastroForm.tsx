@@ -33,6 +33,7 @@ import Link from "next/link";
 import { AddIcon, DeleteIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import NavigationBar from "../NavBarComponent/NavBarContainer";
 import { BoxStyleCadastro, ListStyle, SubtituloDaPagina, TituloDaPagina } from "@/utils/styles";
+import resizeImage from "@/utils/constants/functions";
 
 type Inputs = {
   id: string;
@@ -78,10 +79,17 @@ export default function CadastroForm() {
   const [avatarUrl, setAvatarUrl] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
 
-  const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFile(event.target.files![0]);
-    setAvatarUrl(URL.createObjectURL(event.target.files![0])); // set avatar url as soon as file is selected
+  const onFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files![0];
+    try {
+      const resizedImageUrl = await resizeImage(file);
+      setFile(new File([await (await fetch(resizedImageUrl)).blob()], file.name));
+      setAvatarUrl(resizedImageUrl);
+    } catch (error) {
+      console.error(error);
+    }
   };
+  
   const removeImage = () => {
     setFile(null);
     setAvatarUrl("");

@@ -1,5 +1,19 @@
 // RenderRecipes.tsx
-import { SimpleGrid, Box, Image, Text, Center, Button } from "@chakra-ui/react";
+import {
+  SimpleGrid,
+  Box,
+  Image,
+  Text,
+  Center,
+  Button,
+  ButtonGroup,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Heading,
+  Stack,
+} from "@chakra-ui/react";
 import Link from "next/link";
 
 interface Recipe {
@@ -7,6 +21,7 @@ interface Recipe {
   image_url: string;
   name: string;
   category?: string[];
+  description: string;
 }
 
 interface RenderRecipesProps {
@@ -17,38 +32,59 @@ interface RenderRecipesProps {
 
 const cardColors = ["#FBBACD", "#C1DF8D", "#CD9DFD", "#8FD9FF"];
 
-const RenderRecipes: React.FC<RenderRecipesProps> = ({ recipeCount, filteredProductArray, handleShowMore }) => {
+const RenderRecipes: React.FC<RenderRecipesProps> = ({
+  recipeCount,
+  filteredProductArray,
+  handleShowMore,
+}) => {
   return (
     <Center>
       <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
         {filteredProductArray.slice(0, recipeCount).map((recipe, i) => (
-          <Link
-            href={`/ProductDescriptionPage/${recipe.id}`}
-            key={recipe.id}
-            prefetch={false}
-            style={{ textDecoration: "none" }}
+          <Card
+            maxW="sm"
+            bg={cardColors[i % cardColors.length]}
+            margin="0 auto"
+            textAlign='left'
           >
-            <Box
-              key={i}
-              borderRadius="lg"
-              overflow="hidden"
-              boxShadow="md"
-              bg={cardColors[i % cardColors.length]}
-              p={6}
+            <CardBody
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="column"
             >
               <Image
                 src={recipe.image_url}
                 alt={`Descrição da Receita ${recipe.name}`}
-                objectFit="cover"
-                w="auto"
-                h="auto"
-                mb={4}
+                borderRadius="lg"
+                w="1770"
+                h="80"
               />
-              <Text fontSize="xl" fontWeight="semibold">
-                {recipe.name}
-              </Text>
-            </Box>
-          </Link>
+
+              <Stack mt="6" spacing="3">
+                <Heading size="md">{recipe.name}</Heading>
+                <Text>{recipe.description}</Text>
+                <Text  fontSize="1xl">
+                  Category: {recipe.category}
+                </Text>
+              </Stack>
+            </CardBody>
+            <Divider />
+            <CardFooter>
+              <ButtonGroup spacing="2">
+                <Link
+                  href={`/ProductDescriptionPage/${recipe.id}`}
+                  key={recipe.id}
+                  prefetch={false}
+                  passHref
+                >
+                  <Button variant="solid" colorScheme="blue">
+                    Click to learn more
+                  </Button>
+                </Link>
+              </ButtonGroup>
+            </CardFooter>
+          </Card>
         ))}
       </SimpleGrid>
       {recipeCount < filteredProductArray.length && (
