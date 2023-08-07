@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "@/themes/theme";
 import AppProvider from "@/context/context"; // importando o provedor
 import { SessionProvider } from 'next-auth/react'
-
+import '../styles/global.css'
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>

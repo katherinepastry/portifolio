@@ -20,7 +20,6 @@ const About = () => {
         justifyContent="center"
         position="relative"
         overflow="hidden"
-        fontFamily="Inter, sans-serif"
         fontSize="18px"
         lineHeight="1.667em"
         fontWeight="400"

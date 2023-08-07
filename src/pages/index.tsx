@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import { Inter } from "next/font/google";
 import { Flex, Box, Button } from "@chakra-ui/react";
 import About from "./about";
@@ -7,9 +6,9 @@ import Contact from "./contact";
 import HomeComponent from "./Home";
 import NavigationBar from "@/components/NavBarComponent/NavBarContainer";
 import Recipes from "./Recipes";
-import Footer from "@/components/FooterComponent/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+
+
 
 export default function Home() {
   return (
@@ -20,7 +19,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={inter.className}>
+      <main >
       
         <Flex direction="column">
           <NavigationBar />

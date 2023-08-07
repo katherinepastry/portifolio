@@ -13,7 +13,6 @@ import {
 import { Product, UseProductContext } from "@/context/context";
 import NavigationBar from "@/components/NavBarComponent/NavBarContainer";
 import Link from "next/link";
-
 import ProductDescriptionCategory from "@/components/DescriptionPageComponents/ProductDescriptionCategory";
 import ProductDescriptionImage from "@/components/DescriptionPageComponents/ProductDescriptionImage";
 import ProductDescriptionIngredients from "@/components/DescriptionPageComponents/ProductDescriptionIngredients";
@@ -58,12 +57,13 @@ export default function ProductPage() {
       <Grid
         gridTemplateColumns={{ base: "repeat(1, 1fr)", sm: "repeat(2, 1fr)" }}
         justifyItems="center"
-        pt={-10}
+        alignItems='center'
+        pt={{base:6,md:-10}}
         pb={-10}
         pl={200}
         pr={200}
-        mt={6}
-
+        mt={{base:16}}
+       
         
         bg="rgb(251, 226, 232)"
         borderRadius="md"
@@ -80,6 +80,7 @@ export default function ProductPage() {
             mt={4}
             pt={16}
             pl={16}
+           
           >
             {product.name}
           </Heading>

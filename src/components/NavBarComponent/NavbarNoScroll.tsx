@@ -20,8 +20,6 @@ export default function NavbarNoScroll () {
     fill="#5e6159"
     shadow="sm"
     px={{ base: 6, sm: 16 }}
-    fontFamily={"heading"}
-    fontWeight={"bold"}
    
     >
       <Flex

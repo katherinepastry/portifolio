@@ -8,7 +8,7 @@ interface ProductImageProps {
 
 const ProductDescriptionImage: React.FC<ProductImageProps> = ({ imageUrl, name }) => {
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" flexDir="column" mb={8}>
+    <Box display="flex" justifyContent="center" alignItems="center" flexDir="column" mb={{ base: -2, md: 8 }}>
       <Image src={imageUrl} alt={name} objectFit="contain" maxW="85%" maxH="85%" borderRadius="lg" boxShadow="md" />
     </Box>
   );

@@ -11,7 +11,7 @@ import {
   Image,
   Box
 } from '@chakra-ui/react'
-import { faBackwardFast, faLeftLong } from '@fortawesome/free-solid-svg-icons';
+import {faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signIn, useSession } from "next-auth/react";
 import Link from 'next/link';
@@ -85,7 +85,7 @@ export default function LoginPage() {
               direction={{ base: 'column', sm: 'row' }}
               alignItems='baseline'
               justify={'space-between'}>
-              <Checkbox variant='h2' fontFamily='helvetica'>Remember me</Checkbox>
+              
               
             </Stack>
             <Button colorScheme={'blue'} variant={'solid'}  borderRadius="full"
