@@ -1,9 +1,10 @@
 // ProductIngredients.tsx
+import { Ingredient } from "@/context/context";
 import { Box, Text, Icon } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 
 interface ProductIngredientsProps {
-  ingredients: { value: string }[];
+  ingredients: Ingredient[];
   textColor: string;
 }
 
@@ -17,7 +18,7 @@ const ProductIngredients: React.FC<ProductIngredientsProps> = ({ ingredients, te
       {ingredients &&
         ingredients.map((ingredient, index) => (
           <Text as="li" key={index} fontSize={{ base: "md", md: "lg" }} color={textColor} fontWeight="300" borderRadius="md" p={2} marginLeft={8} textAlign="justify" w="full">
-            {ingredient.value}
+            {ingredient.toString()}
           </Text>
         ))}
     </Box>

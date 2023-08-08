@@ -1,9 +1,10 @@
 // ProductMethod.tsx
+import { Method } from "@/context/context";
 import { Box, Text, Icon } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 
 interface ProductMethodProps {
-  method: { value: string }[];
+  method: Method[]
   textColor: string;
 }
 
@@ -17,7 +18,7 @@ const ProductDescriptionMethod: React.FC<ProductMethodProps> = ({ method, textCo
       {method &&
         method.map((method, index) => (
           <Text key={index} fontSize={{ base: "md", md: "lg" }} color={textColor} fontWeight="300" borderRadius="md" p={2} textAlign="justify" w="full" as="li">
-            {method.value}
+            {method.toString()}
           </Text>
         ))}
     </Box>

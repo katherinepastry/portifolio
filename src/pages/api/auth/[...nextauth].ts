@@ -19,7 +19,7 @@ export default NextAuth({
         username: { label: "Username", type: "text", placeholder: "nome" },
         password: { label: "Password", type: "password" }
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const user = await findUser(credentials!.username, credentials!.password)
 
       
@@ -38,7 +38,7 @@ export default NextAuth({
         verifyRequest: '/auth/verify-request', 
       },
       callbacks: {
-        session({ session, token, user }) {
+        session({ session}) {
           return session // The return type will match the one returned in `useSession()`
         },
         async redirect({ url, baseUrl }) {

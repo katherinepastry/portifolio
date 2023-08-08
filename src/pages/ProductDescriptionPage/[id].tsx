@@ -32,7 +32,7 @@ export default function ProductPage() {
     setProduct(product!);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, ProductArray]);
-
+console.log(product)
   if (!product) {
     return (
       <Box fontSize="xl" fontWeight="bold" p={5}>

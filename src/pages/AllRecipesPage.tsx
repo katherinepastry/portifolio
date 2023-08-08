@@ -10,6 +10,7 @@ import {
   VStack,
   GridItem,
   useBreakpointValue,
+  Input,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import NavigationBar from "@/components/NavBarComponent/NavBarContainer";
@@ -41,7 +42,7 @@ const AllRecipesPage: React.FC = () => {
       )
     : ProductArray;
 
-//console.log(ProductArray[1].category)
+  //console.log(ProductArray[1].category)
 
   const handleFilterClick = (filter: string) => {
     setActiveFilters((prevFilters) => {
@@ -73,7 +74,7 @@ const AllRecipesPage: React.FC = () => {
         >
           <Center
             borderRadius={12}
-            maxW={{md:'60%'}}
+            maxW={{ md: "60%" }}
             p={4}
             mt={6}
             textAlign="center"
@@ -84,6 +85,17 @@ const AllRecipesPage: React.FC = () => {
               <Heading color="#2f2f2f" variant="h1" fontSize="4xl">
                 My Recipes
               </Heading>
+              <Input
+                border="2px solid blue"
+                color="black"
+                sx={{
+                  "::placeholder": {
+                    color: "black", // ou qualquer outra cor ou token de cor Chakra
+                  },
+                }}
+                variant="filled"
+                placeholder="Search here for your favorite food"
+              />
               {!isLargeScreen ? (
                 <>
                   <Grid templateColumns="repeat(2, 1fr)" gap={3}>
@@ -100,7 +112,7 @@ const AllRecipesPage: React.FC = () => {
                       )
                     )}
                   </Grid>
-                  <Center  display="flex" justifyContent="center">
+                  <Center display="flex" justifyContent="center">
                     <ClearFiltersButton
                       handleClearFilters={handleClearFilters}
                     />
