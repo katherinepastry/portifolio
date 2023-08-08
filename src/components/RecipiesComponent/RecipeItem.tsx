@@ -70,45 +70,6 @@ const RecipeItem: FC<RecipeItemProps> = ({ recipeCount, ProductArray }) => (
             </Center>
           </CardFooter>
         </Card>
-=======
-       
-        <Card maxW='sm'  bg={cardColors[i % cardColors.length]} margin='auto'>
-        <CardBody display='flex' justifyContent='center' alignItems='center' flexDirection='column' textAlign='left'>
-       
-          <Image
-            src={recipe.image_url}
-            alt={`Descrição da Receita ${recipe.name}`}
-            borderRadius='lg'
-            w='1770'
-            h='80'
-          />
-         
-          <Stack mt='6' spacing='3'>
-            <Heading size='md'>{recipe.name}</Heading>
-            <Text>
-            {recipe.description}
-            </Text>
-            
-          </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter alignItems='center'>
-          <ButtonGroup spacing='2'>
-          <Link
-         href={`/ProductDescriptionPage/${recipe.id}`}
-         key={recipe.id}
-         prefetch={false}
-         passHref
-       >
-            <Button variant='solid' colorScheme='blue'>
-            Click to learn more
-            </Button>
-            </Link>
-          </ButtonGroup>
-        </CardFooter>
-      </Card>
-      
->>>>>>> Stashed changes
       ))}
     </SimpleGrid>
   </Center>

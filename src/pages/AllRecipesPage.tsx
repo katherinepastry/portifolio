@@ -82,7 +82,6 @@ const AllRecipesPage: React.FC = () => {
               <Heading color="#2f2f2f" variant="h1" fontSize="4xl">
                 My Recipes
               </Heading>
-<<<<<<< Updated upstream
               {!isLargeScreen ? (
                 <>
                   <Grid templateColumns="repeat(2, 1fr)" gap={3}>

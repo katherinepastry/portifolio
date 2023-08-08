@@ -193,7 +193,7 @@ console.log(uploadProgress)
             />
           </FormControl>
           <FormControl mb={6} isRequired>
-            <SubtituloDaPagina>3. Description:</SubtituloDaPagina>
+            <SubtituloDaPagina>3. Description</SubtituloDaPagina>
             <Textarea
               {...register("description")}
               borderRadius="8px"
@@ -204,7 +204,7 @@ console.log(uploadProgress)
           <FormControl mb={6}>
             <SubtituloDaPagina>4. Product Categories:</SubtituloDaPagina>
             <CheckboxGroup colorScheme="red">
-              <HStack spacing="60px">
+              <HStack spacing="24px">
                 <Checkbox {...register("category")} value="Vegan">
                   Vegan
                 </Checkbox>
@@ -227,7 +227,7 @@ console.log(uploadProgress)
             flexDirection="column"
             gap={6}
           >
-            <SubtituloDaPagina>5. Ingredients:</SubtituloDaPagina>
+            <SubtituloDaPagina>5. Ingredients</SubtituloDaPagina>
             {ingredientFields.map((item, index) => (
               <Flex key={item.id} align="center" justify="space-between" mb={2}>
                 <Input
@@ -253,9 +253,9 @@ console.log(uploadProgress)
             >
               Add Ingredient
             </Button>
-            <SubtituloDaPagina>6. Method:</SubtituloDaPagina>
+            <SubtituloDaPagina>6. Method</SubtituloDaPagina>
             {methodFields.map((item, index) => (
-              <Flex key={item.id} align="center" justify="space-between"  mb={0.01}>
+              <Flex key={item.id} align="center" justify="space-between" mb={2}>
                 <Input
                   {...register(`method.${index}.value`)}
                   defaultValue={item.value}
