@@ -26,3 +26,7 @@ export function separateCamelCase(value: string): string {
   if (value === "Gluten Free") return "Gluten Free";
   return value.replace(/(?!^)([A-Z])/g, ', $1');
 }
+
+export const removeAccents = (input: string) => {
+  return input.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+};

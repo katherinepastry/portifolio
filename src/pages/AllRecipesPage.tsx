@@ -19,6 +19,7 @@ import { slideIn } from "@/utils/motion";
 import FilterButton from "@/components/AllRecipiesPageComponents/FilterButton";
 import RenderRecipes from "@/components/AllRecipiesPageComponents/RenderRecipes";
 import ClearFiltersButton from "@/components/AllRecipiesPageComponents/ClearFiltersButton";
+import { removeAccents } from "@/utils/constants/functions";
 
 const buttonStyles = [
   { backgroundColor: "#4B5320", color: "white" },
@@ -32,7 +33,9 @@ const AllRecipesPage: React.FC = () => {
   const [recipeCount, setRecipeCount] = useState(8);
   const { ProductArray } = UseProductContext();
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-  const filteredProductArray = activeFilters.length
+  const [search, setsearch] = useState("");
+  // Primeiro, filtrar os produtos com base nos filtros ativos
+  const filteredByCategory = activeFilters.length
     ? ProductArray.filter((product) =>
         product.category
           ? product.category.some((category) =>
@@ -41,6 +44,13 @@ const AllRecipesPage: React.FC = () => {
           : false
       )
     : ProductArray;
+
+  // Em seguida, filtrar os produtos com base na pesquisa
+  const filteredProductArray = filteredByCategory.filter((product) =>
+    removeAccents(product.name.toLowerCase()).includes(
+      removeAccents(search.toLowerCase())
+    )
+  );
 
   //console.log(ProductArray[1].category)
 
@@ -88,6 +98,8 @@ const AllRecipesPage: React.FC = () => {
               <Input
                 border="2px solid blue"
                 color="black"
+                value={search}
+                onChange={(e) => setsearch(e.target.value)}
                 sx={{
                   "::placeholder": {
                     color: "black", // ou qualquer outra cor ou token de cor Chakra
