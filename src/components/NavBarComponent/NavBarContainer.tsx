@@ -1,12 +1,23 @@
-'use client'
-import { useBreakpointValue, Box, Flex, Text, VStack, useDisclosure,Button,Image,Tooltip } from "@chakra-ui/react";
+"use client";
+import {
+  useBreakpointValue,
+  Box,
+  Flex,
+  Text,
+  VStack,
+  useDisclosure,
+  Button,
+  Image,
+  Tooltip,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import MobileDrawer from "./MobileDrawer";
 import NavbarScroll from "./NavBarScroll";
 import Link from "next/link";
 import { LockIcon, SmallCloseIcon } from "@chakra-ui/icons";
-import { signOut, useSession,signIn } from "next-auth/react";
-
+import { signOut, useSession, signIn } from "next-auth/react";
+import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function NavigationBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,26 +43,54 @@ export default function NavigationBar() {
     onClose();
   };
 
- 
-
   const renderButton = () => {
     if (session) {
       return (
-        <Button
-        onClick={() => {
-          signOut();
-        }}
-          borderRadius={6}
-          _hover={{ opacity: 0.8 }}
-          _active={{ transform: "scale(0.9)" }}
-          boxShadow="lg"
-          colorScheme="red"
-          p={4}
-          color="white"
-          rightIcon={<LockIcon />}
-        >
-         {session? "Logout..." : "Login"}
-        </Button>
+        <Flex flexDirection="row" justifyContent="center" gap="20px">
+          <Link href="/RegistrationProduct">
+            <Button
+              borderRadius={6}
+              _hover={{ opacity: 0.8 }}
+              _active={{ transform: "scale(0.9)" }}
+              boxShadow="lg"
+              colorScheme="facebook"
+              p={4}
+              color="white"
+              leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
+            >
+              Register product
+            </Button>
+          </Link>
+          <Link href="/UpdateProduct">
+            <Button
+              borderRadius={6}
+              _hover={{ opacity: 0.8 }}
+              _active={{ transform: "scale(0.9)" }}
+              boxShadow="lg"
+              colorScheme="purple"
+              p={4}
+              color="white"
+              leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
+            >
+              Update product
+            </Button>
+          </Link>
+          <Button
+            onClick={() => {
+              signOut();
+            }}
+            borderRadius={6}
+            _hover={{ opacity: 0.8 }}
+            _active={{ transform: "scale(0.9)" }}
+            boxShadow="lg"
+            colorScheme="red"
+            p={4}
+            color="white"
+            rightIcon={<LockIcon />}
+          >
+            {session ? "Logout..." : "Login"}
+          </Button>
+        </Flex>
       );
     } else {
       return (
@@ -87,8 +126,12 @@ export default function NavigationBar() {
           />
         </Text>
       </Tooltip>
-      
-      <MobileDrawer isOpen={isOpen} onClose={onClose} handleSmoothScroll={handleSmoothScroll} />
+
+      <MobileDrawer
+        isOpen={isOpen}
+        onClose={onClose}
+        handleSmoothScroll={handleSmoothScroll}
+      />
     </VStack>
   );
 
@@ -111,9 +154,7 @@ export default function NavigationBar() {
           right="10px"
           display="flex"
           alignItems="baseline"
-        >
-         
-        </Box>
+        ></Box>
       )}
       <Flex
         align="center"
@@ -123,8 +164,8 @@ export default function NavigationBar() {
         margin="auto"
       >
         <Box position="absolute" top="6" right="10">
-        {renderButton()}
-      </Box>
+          {renderButton()}
+        </Box>
         {isLargeScreen ? <NavbarScroll /> : <SmallScreenNavbar />}
       </Flex>
     </Box>

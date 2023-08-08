@@ -41,6 +41,8 @@ const AllRecipesPage: React.FC = () => {
       )
     : ProductArray;
 
+//console.log(ProductArray[1].category)
+
   const handleFilterClick = (filter: string) => {
     setActiveFilters((prevFilters) => {
       if (prevFilters.includes(filter)) {
