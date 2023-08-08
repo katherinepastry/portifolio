@@ -3,10 +3,13 @@ import { useState } from "react";
 import {
   Box,
   Center,
+  Grid,
   Heading,
   Stack,
   Text,
   VStack,
+  GridItem,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import NavigationBar from "@/components/NavBarComponent/NavBarContainer";
@@ -16,7 +19,6 @@ import FilterButton from "@/components/AllRecipiesPageComponents/FilterButton";
 import RenderRecipes from "@/components/AllRecipiesPageComponents/RenderRecipes";
 import ClearFiltersButton from "@/components/AllRecipiesPageComponents/ClearFiltersButton";
 
-
 const buttonStyles = [
   { backgroundColor: "#4B5320", color: "white" },
   { backgroundColor: "#FF1493", color: "white" },
@@ -25,6 +27,7 @@ const buttonStyles = [
 ];
 
 const AllRecipesPage: React.FC = () => {
+  const isLargeScreen = useBreakpointValue({ base: false, lg: true });
   const [recipeCount, setRecipeCount] = useState(8);
   const { ProductArray } = UseProductContext();
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
@@ -67,9 +70,8 @@ const AllRecipesPage: React.FC = () => {
           color="white"
         >
           <Center
-            //bg="rgb(251, 226, 232)"
             borderRadius={12}
-            maxW="60%"
+            maxW={{md:'60%'}}
             p={4}
             mt={6}
             textAlign="center"
@@ -77,28 +79,52 @@ const AllRecipesPage: React.FC = () => {
             flexDir="column"
           >
             <Stack spacing={6}>
-              <Heading
-              
-                color="#2f2f2f"
-                variant="h1"
-                fontSize="4xl"
-              >
+              <Heading color="#2f2f2f" variant="h1" fontSize="4xl">
                 My Recipes
               </Heading>
-              <Stack spacing={3} direction={{ base: 'column', md: 'row' }} mt={2} alignItems="baseline">
-                {["Vegan", "Gluten Free", "Salt", "Sweet"].map(
-                  (filter, index) => (
-                    <FilterButton
-                      key={index}
-                      filter={filter}
-                      isActive={activeFilters.includes(filter)}
-                      style={buttonStyles[index]}
-                      handleFilterClick={handleFilterClick}
+              {!isLargeScreen ? (
+                <>
+                  <Grid templateColumns="repeat(2, 1fr)" gap={3}>
+                    {["Vegan", "Gluten Free", "Salt", "Sweet"].map(
+                      (filter, index) => (
+                        <GridItem w="100%" h="10" key={index}>
+                          <FilterButton
+                            filter={filter}
+                            isActive={activeFilters.includes(filter)}
+                            style={buttonStyles[index]}
+                            handleFilterClick={handleFilterClick}
+                          />
+                        </GridItem>
+                      )
+                    )}
+                  </Grid>
+                  <Center  display="flex" justifyContent="center">
+                    <ClearFiltersButton
+                      handleClearFilters={handleClearFilters}
                     />
-                  )
-                )}
-                <ClearFiltersButton handleClearFilters={handleClearFilters} />
-              </Stack>
+                  </Center>
+                </>
+              ) : (
+                <Stack
+                  spacing={3}
+                  direction={{ base: "column", md: "row" }}
+                  mt={2}
+                  alignItems="baseline"
+                >
+                  {["Vegan", "Gluten Free", "Salt", "Sweet"].map(
+                    (filter, index) => (
+                      <FilterButton
+                        key={index}
+                        filter={filter}
+                        isActive={activeFilters.includes(filter)}
+                        style={buttonStyles[index]}
+                        handleFilterClick={handleFilterClick}
+                      />
+                    )
+                  )}
+                  <ClearFiltersButton handleClearFilters={handleClearFilters} />
+                </Stack>
+              )}
             </Stack>
             <VStack spacing={4} mt={4} w="full">
               <RenderRecipes
