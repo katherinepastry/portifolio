@@ -49,16 +49,14 @@ const RenderRecipes: React.FC<RenderRecipesProps> = ({
           >
             <CardBody
               display="flex"
-              justifyContent="center"
-              alignItems="center"
-              flexDirection="column"
+              position='relative' top='0'
+              flexDirection='column'
             >
               <Image
                 src={recipe.image_url}
                 alt={`Descrição da Receita ${recipe.name}`}
                 borderRadius="lg"
-                w="1770"
-                h="80"
+                objectFit='contain'
               />
 
               <Stack mt="6" spacing="3">

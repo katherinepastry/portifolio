@@ -34,6 +34,7 @@ import { AddIcon, DeleteIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import NavigationBar from "../NavBarComponent/NavBarContainer";
 import { BoxStyleCadastro, ListStyle, SubtituloDaPagina, TituloDaPagina } from "@/utils/styles";
 import resizeImage from "@/utils/constants/functions";
+import 'react-image-crop/dist/ReactCrop.css';
 
 type Inputs = {
   id: string;
@@ -47,6 +48,9 @@ type Inputs = {
 
 export default function CadastroForm() {
   const [isUploading, setIsUploading] = useState(false);
+  const [crop, setCrop] = useState({ aspect: 512 / 768, width: 512, height: 768 });
+  const [croppedImageUrl, setCroppedImageUrl] = useState(null);
+
   const { data: session, status } = useSession();
   const loading = status === "loading";
   const router = useRouter();

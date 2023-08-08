@@ -22,16 +22,16 @@ const RecipeItem: FC<RecipeItemProps> = ({ recipeCount, ProductArray }) => (
       {ProductArray.slice(0, recipeCount).map((recipe, i) => (
        
         <Card maxW='sm'  bg={cardColors[i % cardColors.length]} margin='0 auto'>
-        <CardBody display='flex' justifyContent='center' alignItems='center' flexDirection='column' textAlign='left'>
-       
+        <CardBody display='flex' flexDirection='column' textAlign='left' position='relative' top='0'>
+      
           <Image
             src={recipe.image_url}
             alt={`Descrição da Receita ${recipe.name}`}
             borderRadius='lg'
-            w='1770'
-            h='80'
+           
+            objectFit='contain'
           />
-         
+        
           <Stack mt='6' spacing='3'>
             <Heading size='md'>{recipe.name}</Heading>
             <Text>
