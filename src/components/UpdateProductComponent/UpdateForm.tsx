@@ -274,6 +274,7 @@ export default function UpdateForm() {
               {...register("description")}
             />
           </FormControl>
+
           <FormControl id="category" mb={6} mt={6}>
             <SubtituloDaPagina>4. Product category</SubtituloDaPagina>
             {allCategories.map((cat) => (
@@ -286,6 +287,7 @@ export default function UpdateForm() {
               </Checkbox>
             ))}
           </FormControl>
+
           <FormControl id="ingredient">
             <SubtituloDaPagina>5. Ingredients</SubtituloDaPagina>
             {selectedProduct?.ingredients.map((ingredient, index) => (
@@ -301,8 +303,8 @@ export default function UpdateForm() {
             ))}
           </FormControl>
 
-          <FormControl id="method" mb={6}>
-            <SubtituloDaPagina>6. method</SubtituloDaPagina>
+          <FormControl id="method">
+            <SubtituloDaPagina>6. Method</SubtituloDaPagina>
             {selectedProduct?.method.map((method, index) => (
               <Input
                 variant="filled"

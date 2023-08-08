@@ -48,33 +48,38 @@ export default function ProductPage() {
     <NavigationBar />
     <Box
       bg="#FED0D0"
-      minH="100vh"
+      //minH="100vh"
       display="flex"
       justifyContent="center"
       alignItems="center"
       overflow={{ md: "auto", base: "scroll" }}
+      pb={{base:50}}
+      pt={{base:50}}
+      pl={{base:50}}
+      pr={{base:50}}
     >
       <Grid
         gridTemplateColumns={{ base: "repeat(1, 1fr)", sm: "repeat(2, 1fr)" }}
         justifyItems="center"
         alignItems='center'
-        pt={{base:6,md:-10}}
-        pb={-10}
-        pl={200}
-        pr={200}
-        mt={{base:16}}
+        pt={{base:10, lg:"1px"}}
+        pb={{base:10,lg:5}}
+        pl={{sm:5,lg:6}}
+        pr={{sm:5,lg:6}}
+        //mt={{base:16}}
        
         
         bg="rgb(251, 226, 232)"
         borderRadius="md"
-        //mt={{ md: "16px", base: "16px" }}
+        //mt={{sm:"16px", md: "16px", base: "16px" }}
         //maxW={{ md: "80%", base: "100%" }}
       >
         <ProductDescriptionImage imageUrl={product.image_url!} name={product.name} />
         <VStack align="start" spacing={1} maxW={{ sm: "xl" }}>
           <Heading
+            
             color={textColor}
-            fontSize={{ base: "2xl", md: "3xl" }}
+            fontSize={{ sm:"1xl", base: "2xl", md: "3xl" }}
             lineHeight="1.2"
             fontWeight="bold"
             mt={4}
@@ -92,7 +97,7 @@ export default function ProductPage() {
 
           <Link href="/AllRecipesPage">
             <Button
-              borderRadius="8px"
+              borderRadius={{sm:"50px", base:"8px"}}
               _hover={{ opacity: 0.8 }}
               _active={{ transform: "scale(0.9)" }}
               boxShadow="lg"
