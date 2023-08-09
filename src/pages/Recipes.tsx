@@ -1,13 +1,13 @@
 // Recipes.tsx
 import { FC, useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@chakra-ui/react";
+import { Button,Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { slideIn } from "@/utils/motion";
-import { usePathname } from "next/navigation";
+
 import { UseProductContext } from "@/context/context";
 import { SectionWrapper } from "@/hoc";
-import NavigationBar from "@/components/NavBarComponent/NavBarContainer";
+
 import RecipeHeader from "@/components/RecipiesComponent/RecipeHeader";
 import RecipeItem from "@/components/RecipiesComponent/RecipeItem";
 import RecipeItensContainer from "@/components/RecipiesComponent/RecipeItensContainer";
@@ -22,6 +22,11 @@ const Recipes: FC = () => {
   return (
     <motion.div variants={slideIn("left", "tween", 0.2, 1)}>
       <RecipeItensContainer>
+      <Image
+              mb="20px"
+              src="https://assets.website-files.com/637fa7b1a7c89ce08dff2aec/6384e29b53b8230d59ee4219_shape-decorative-nutritionist-x-webflow-template.svg"
+              alt=""
+            />
         <RecipeHeader title="My Recipes" />
         <RecipeItem recipeCount={recipeCount} ProductArray={ProductArray} />
         <Link href="/AllRecipesPage">
