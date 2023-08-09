@@ -14,10 +14,9 @@ import { useEffect, useState } from "react";
 import MobileDrawer from "./MobileDrawer";
 import NavbarScroll from "./NavBarScroll";
 import Link from "next/link";
-import { LockIcon, SmallCloseIcon } from "@chakra-ui/icons";
-import { signOut, useSession, signIn } from "next-auth/react";
-import { faLeftLong } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LockIcon} from "@chakra-ui/icons";
+import { signOut, useSession } from "next-auth/react";
+
 
 export default function NavigationBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
