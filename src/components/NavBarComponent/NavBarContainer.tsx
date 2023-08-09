@@ -45,7 +45,7 @@ export default function NavigationBar() {
 
   const renderButton = () => {
     return (
-      <Flex flexDirection={{ base: "column", md: "row" }} gap="2">
+      <Flex flexDirection="row" gap={{base:'150px',md:2}} >
         {session ? (
           <>
             <Link href="/RegistrationProduct" passHref>
@@ -57,25 +57,12 @@ export default function NavigationBar() {
                 colorScheme="facebook"
                 p={4}
                 color="white"
-                leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
+                
               >
-                Register product
+                Handle Products
               </Button>
             </Link>
-            <Link href="/UpdateProduct" passHref>
-              <Button
-                borderRadius={6}
-                _hover={{ opacity: 0.8 }}
-                _active={{ transform: "scale(0.9)" }}
-                boxShadow="lg"
-                colorScheme="purple"
-                p={4}
-                color="white"
-                leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
-              >
-                Update product
-              </Button>
-            </Link>
+            
             <Button
               onClick={() => signOut()}
               borderRadius={6}
