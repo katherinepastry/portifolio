@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Drawer,
   DrawerBody,
@@ -5,7 +7,6 @@ import {
   DrawerOverlay,
   DrawerContent,
   IconButton,
-  Image,
   Text,
   Box,
   VStack,
@@ -19,11 +20,11 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { MouseEvent } from "react";
+import { usePathname } from "next/navigation";
 
 interface MenuItemProps {
   icon: typeof faHome;
-  onClick: (e: MouseEvent) => void;
+  onClick: (id: string) => void;
   children: React.ReactNode;
 }
 
@@ -31,13 +32,13 @@ const MenuItem: React.FC<MenuItemProps> = ({ onClick, icon, children }) => (
   <Box w="100%" borderTop="1px solid rgba(255, 255, 255, 0.1)">
     <Box
       as="button"
-      w="56%"
+      w="67%"
       py={2}
       pl={3}
       ml={6}
-      onClick={onClick}
+      onClick={() => onClick(children!.toString())} // Chama onClick com o id
       display="flex"
-      alignItems="center"
+      alignItems="flex-end"
       fontSize="24px"
       fontWeight="bold"
       gap={5}
@@ -46,7 +47,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ onClick, icon, children }) => (
         color: "#69F0AE",
       }}
     >
-      <FontAwesomeIcon icon={icon} size="sm" />
+      <FontAwesomeIcon icon={icon} size="xs" />
       <Text ml={3}>{children}</Text>
     </Box>
   </Box>
@@ -55,14 +56,20 @@ const MenuItem: React.FC<MenuItemProps> = ({ onClick, icon, children }) => (
 interface MobileDrawerProps {
   isOpen: boolean;
   onClose: () => void;
-  handleSmoothScroll: (id: string) => void;
 }
 
-const MobileDrawer: React.FC<MobileDrawerProps> = ({
-  isOpen,
-  onClose,
-  handleSmoothScroll,
-}) => {
+const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
+  const pathname = usePathname();
+  const id = pathname.split("/").pop();
+
+  const handleSmoothScroll = (itemId: string) => {
+    const targetId =
+      id === "AllRecipesPage" || id === "Recipes" || id === "about" || id === "contact" ? `/#${itemId}` : `#${itemId}`;
+    // Adicione aqui a lógica para fazer o scroll suave para o elemento
+    window.location.href = targetId; // Exemplo simples, substitua pela sua lógica
+    onClose();
+  };
+
   return (
     <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay>
@@ -74,39 +81,22 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({
               _hover={{ backgroundColor: "transparent" }}
               aria-label="Close menu"
               onClick={onClose}
-              icon={
-                <FontAwesomeIcon icon={faTimes} size="1x" color="pink.600" />
-              }
+              icon={<FontAwesomeIcon icon={faTimes} size="1x" color="pink.600" />}
             />
             <Heading color="#fff">Menu</Heading>
           </DrawerHeader>
           <DrawerBody>
             <VStack align="start" spacing={4}>
-              <MenuItem
-                onClick={() => handleSmoothScroll("Home")}
-                icon={faHome}
-              >
+              <MenuItem onClick={handleSmoothScroll} icon={faHome}>
                 Home
               </MenuItem>
-
-              <MenuItem
-                onClick={() => handleSmoothScroll("Recipes")}
-                icon={faUtensils}
-              >
+              <MenuItem onClick={handleSmoothScroll} icon={faUtensils}>
                 Recipes
               </MenuItem>
-
-              <MenuItem
-                onClick={() => handleSmoothScroll("about")}
-                icon={faBriefcase}
-              >
+              <MenuItem onClick={handleSmoothScroll} icon={faBriefcase}>
                 About me
               </MenuItem>
-
-              <MenuItem
-                onClick={() => handleSmoothScroll("contact")}
-                icon={faEnvelope}
-              >
+              <MenuItem onClick={handleSmoothScroll} icon={faEnvelope}>
                 Contact
               </MenuItem>
             </VStack>

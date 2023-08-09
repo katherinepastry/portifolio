@@ -44,73 +44,74 @@ export default function NavigationBar() {
   };
 
   const renderButton = () => {
-    if (session) {
-      return (
-        <Flex flexDirection="row" justifyContent="center" gap="20px">
-          <Link href="/RegistrationProduct">
+    return (
+      <Flex flexDirection={{ base: "column", md: "row" }} gap="2">
+        {session ? (
+          <>
+            <Link href="/RegistrationProduct" passHref>
+              <Button
+                borderRadius={6}
+                _hover={{ opacity: 0.8 }}
+                _active={{ transform: "scale(0.9)" }}
+                boxShadow="lg"
+                colorScheme="facebook"
+                p={4}
+                color="white"
+                leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
+              >
+                Register product
+              </Button>
+            </Link>
+            <Link href="/UpdateProduct" passHref>
+              <Button
+                borderRadius={6}
+                _hover={{ opacity: 0.8 }}
+                _active={{ transform: "scale(0.9)" }}
+                boxShadow="lg"
+                colorScheme="purple"
+                p={4}
+                color="white"
+                leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
+              >
+                Update product
+              </Button>
+            </Link>
+            <Button
+              onClick={() => signOut()}
+              borderRadius={6}
+              _hover={{ opacity: 0.8 }}
+              _active={{ transform: "scale(0.9)" }}
+              boxShadow="lg"
+              colorScheme="red"
+              p={4}
+              color="white"
+              rightIcon={<LockIcon />}
+            >
+              Logout
+            </Button>
+          </>
+        ) : (
+          <Link href="/login" passHref>
             <Button
               borderRadius={6}
               _hover={{ opacity: 0.8 }}
               _active={{ transform: "scale(0.9)" }}
               boxShadow="lg"
-              colorScheme="facebook"
+              colorScheme="red"
               p={4}
               color="white"
-              leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
+              rightIcon={<LockIcon />}
             >
-              Register product
+              Login
             </Button>
           </Link>
-          <Link href="/UpdateProduct">
-            <Button
-              borderRadius={6}
-              _hover={{ opacity: 0.8 }}
-              _active={{ transform: "scale(0.9)" }}
-              boxShadow="lg"
-              colorScheme="purple"
-              p={4}
-              color="white"
-              leftIcon={<FontAwesomeIcon icon={faLeftLong} />}
-            >
-              Update product
-            </Button>
-          </Link>
-          <Button
-            onClick={() => {
-              signOut();
-            }}
-            borderRadius={6}
-            _hover={{ opacity: 0.8 }}
-            _active={{ transform: "scale(0.9)" }}
-            boxShadow="lg"
-            colorScheme="red"
-            p={4}
-            color="white"
-            rightIcon={<LockIcon />}
-          >
-            {session ? "Logout..." : "Login"}
-          </Button>
-        </Flex>
-      );
-    } else {
-      return (
-        <Link href="/login">
-          <Button
-            borderRadius={6}
-            _hover={{ opacity: 0.8 }}
-            _active={{ transform: "scale(0.9)" }}
-            boxShadow="lg"
-            colorScheme="red"
-            p={4}
-            color="white"
-            rightIcon={<LockIcon />}
-          >
-            Login
-          </Button>
-        </Link>
-      );
-    }
+        )}
+      </Flex>
+    );
   };
+  
+  // Resto do componente NavigationBar permanece o mesmo.
+  
 
   const SmallScreenNavbar = () => (
     <VStack spacing={4} alignItems="center">
@@ -130,44 +131,37 @@ export default function NavigationBar() {
       <MobileDrawer
         isOpen={isOpen}
         onClose={onClose}
-        handleSmoothScroll={handleSmoothScroll}
+       
       />
     </VStack>
   );
 
   return (
     <Box
-      as="nav"
-      h={{ base: "70px", md: "88px" }}
-      w="full"
-      bg="#FFFFFF"
-      fill="#5e6159"
-      shadow="sm"
-      borderBottom="1px solid #E2E8F0"
-      position={isScrolled ? "fixed" : "static"}
-      zIndex={!isOpen ? 10000 : -1} // Use !isOpen to decide zIndex
+    as="nav"
+    h={{ base: "70px", md: "88px" }}
+    w="full"
+    bg="#FFFFFF"
+    fill="#5e6159"
+    shadow="sm"
+    borderBottom="1px solid #E2E8F0"
+    position={isScrolled ? "fixed" : "static"}
+    zIndex={!isOpen ? 10000 : -1}
+  >
+    <Flex
+      align="center"
+      justifyContent="space-between"
+      px={{ base: "4", md: "8" }}
+      maxW="1160px"
+      margin="auto"
     >
-      {!isOpen && ( // Render top bar only if Drawer is not open
-        <Box
-          position="absolute"
-          top="20px"
-          right="10px"
-          display="flex"
-          alignItems="baseline"
-        ></Box>
-      )}
-      <Flex
-        align="center"
-        justifyContent="center"
-        px={{ base: "4", md: "8" }}
-        maxW="1160px"
-        margin="auto"
-      >
-        <Box position="absolute" top="6" right="10">
-          {renderButton()}
-        </Box>
+      <Box>
         {isLargeScreen ? <NavbarScroll /> : <SmallScreenNavbar />}
-      </Flex>
-    </Box>
+      </Box>
+      <Box>
+        {renderButton()}
+      </Box>
+    </Flex>
+  </Box>
   );
 }
