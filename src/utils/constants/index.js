@@ -9,11 +9,11 @@
       title: "Recipes",
     },
     {
-      id: "about",
+      id: "About",
       title: "About me",
     },
     {
-      id: "contact",
+      id: "Contact",
       title: "Contact",
     },
   ];
@@ -28,11 +28,11 @@
       title: "Recipes",
     },
     {
-      id: "about",
+      id: "About",
       title: "About me",
     },
     {
-      id: "contact",
+      id: "Contact",
       title: "Contact",
     },
   ];
@@ -47,11 +47,11 @@
       title: "Recipes",
     },
     {
-      id: "about",
+      id: "About",
       title: "About me",
     },
     {
-      id: "contact",
+      id: "Contact",
       title: "Contact",
     },
   ];

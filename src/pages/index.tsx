@@ -27,14 +27,14 @@ export default function Home() {
             <HomeComponent idName={"Home"} />
           </Box>
           <Box backgroundColor="#f7ecdf">
-            <About idName={"about"} />
+            <About idName={"About"} />
           </Box>
 
           <Box bg="#FED0D0">
             <Recipes idName={"Recipes"} />
           </Box>
           <Box display='flex' flexDirection='column' justifyContent='space-around'>
-            <Contact idName={"contact"} />
+            <Contact idName={"Contact"} />
            
           </Box>
           

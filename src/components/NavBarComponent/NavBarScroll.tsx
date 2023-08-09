@@ -21,7 +21,7 @@ export default function NavbarScroll () {
         py={!isLargeScreen ? 2 : undefined}
         color="neutral400"
         fontSize={{ base: "sm", md: "md" }}
-        href={id === "AllRecipesPage"|| "Recipes" || "about" ||"contact" ? `/#${item.id}` : `#${item.id}`}
+        href={id === "AllRecipesPage"|| "Recipes" || "About" ||"Contact" ? `/#${item.id}` : `#${item.id}`}
         _hover={{ textDecoration: "none" }}
         mt={4}
       >

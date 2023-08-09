@@ -64,7 +64,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
 
   const handleSmoothScroll = (itemId: string) => {
     const targetId =
-      id === "AllRecipesPage" || id === "Recipes" || id === "about" || id === "contact" ? `/#${itemId}` : `#${itemId}`;
+      id === "AllRecipesPage" || id === "Recipes" || id === "About" || id === "Contact" ? `/#${itemId}` : `#${itemId}`;
     // Adicione aqui a lógica para fazer o scroll suave para o elemento
     window.location.href = targetId; // Exemplo simples, substitua pela sua lógica
     onClose();
@@ -94,7 +94,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                 Recipes
               </MenuItem>
               <MenuItem onClick={handleSmoothScroll} icon={faBriefcase}>
-                About me
+               About
               </MenuItem>
               <MenuItem onClick={handleSmoothScroll} icon={faEnvelope}>
                 Contact

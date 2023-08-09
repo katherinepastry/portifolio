@@ -150,7 +150,8 @@ export default function NavigationBar() {
   >
     <Flex
       align="center"
-      justifyContent="space-between"
+      justifyContent="center"
+      alignItems='baseline'
       px={{ base: "4", md: "8" }}
       maxW="1160px"
       margin="auto"
@@ -158,7 +159,7 @@ export default function NavigationBar() {
       <Box>
         {isLargeScreen ? <NavbarScroll /> : <SmallScreenNavbar />}
       </Box>
-      <Box>
+      <Box position='absolute' right='0px' top={5} mb={{base:'12px'}}>
         {renderButton()}
       </Box>
     </Flex>
